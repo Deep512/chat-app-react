@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [counter, setCounter] = useState(0)
+	useEffect(() => {
+		fetch("http://localhost:8000/")
+			.then((response) => response.json())
+			.then((data) => console.log(data))
+	}, [])
+
+	return (
+		<div className="flex justify-center items-center h-screen">
+			<button
+				className="border border-10 p-4 bg-gray-400 rounded-md"
+				onClick={() => setCounter(counter + 1)}
+			>
+				{counter}
+			</button>
+		</div>
+	)
 }
 
-export default App;
+export default App
