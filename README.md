@@ -16,6 +16,10 @@ npm start
 
 Open localhost:3000 once successfully compiled.
 
+## Screenshots
+<img width="1728" alt="Screenshot 2024-05-18 at 2 31 52 PM" src="https://github.com/Deep512/chat-app-react/assets/42740971/c18e6551-be7b-4428-a082-5bd945820c9c">
+
+
 ## Available Scripts
 
 In the project directory, you can run:
