@@ -50,9 +50,8 @@ const App = () => {
 				darkModeHandler={darkModeHandler}
 				dark={dark}
 			/>
-			<div className="flex-grow h-screen bg-gray-200 dark:bg-gray-700">
-				<ChatDisplay chat={selectedChat} handleAddMessage={handleAddMessage} />
-			</div>
+
+			<ChatDisplay chat={selectedChat} handleAddMessage={handleAddMessage} />
 		</div>
 	)
 }

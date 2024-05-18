@@ -20,13 +20,12 @@ const Sidebar = ({
 				>
 					Add Chat +
 				</button>
-				<button onClick={() => darkModeHandler()} className="dark:text-white">
-					{
-						dark && <IoSunny /> // render sunny when dark is true
-					}
-					{
-						!dark && <IoMoon /> // render moon when dark is false
-					}
+				<button
+					onClick={() => darkModeHandler()}
+					className="dark:text-white hover:opacity-70 text-xl transition-all ease-in-out duration-200"
+				>
+					{dark && <IoSunny />}
+					{!dark && <IoMoon />}
 				</button>
 			</div>
 			<div className="max-h-screen overflow-scroll">
@@ -38,7 +37,7 @@ const Sidebar = ({
 								selectedChatId === chat.id
 									? "bg-gray-300 dark:bg-gray-500"
 									: "bg-white"
-							} hover:bg-gray-200 dark:hover:bg-gray-400 transition-all ease-in-out`}
+							} hover:bg-gray-100 dark:hover:bg-gray-400 transition-all ease-in-out duration-200`}
 							onClick={() => onSelectChat(chat.id)}
 						>
 							{chat.name}
