@@ -12,6 +12,13 @@ const App = () => {
 		setSelectedChatId(chatId)
 	}
 
+	const [dark, setDark] = React.useState(false)
+
+	const darkModeHandler = () => {
+		setDark(!dark)
+		document.body.classList.toggle("dark")
+	}
+
 	const handleAddChat = () => {
 		const newChat = {
 			id: Date.now(),
@@ -39,8 +46,10 @@ const App = () => {
 				selectedChatId={selectedChatId}
 				onSelectChat={handleSelectChat}
 				onAddChat={handleAddChat}
+				darkModeHandler={darkModeHandler}
+				dark={dark}
 			/>
-			<div className="flex-grow h-screen bg-gray-200">
+			<div className="flex-grow h-screen bg-gray-200 dark:bg-gray-700">
 				<ChatDisplay chat={selectedChat} handleAddMessage={handleAddMessage} />
 			</div>
 		</div>
