@@ -14,7 +14,7 @@ const App = () => {
 	}
 
 	const onTextInputChange = (content, idx) => {
-		const updatedElements = elements
+		const updatedElements = [...elements]
 		updatedElements[idx].content = content
 		setElements(updatedElements)
 	}
