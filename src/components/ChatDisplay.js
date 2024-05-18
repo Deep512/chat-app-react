@@ -45,8 +45,8 @@ const ChatDisplay = ({ chat, handleAddMessage }) => {
 			<div className=" sticky top-0 bg-white dark:bg-gray-700 shadow-md dark:shadow-gray-900 flex items-center">
 				<h1 className="p-5 text-xl font-bold dark:text-white">{chat.name}</h1>
 			</div>
-			<div className="p-4 flex flex-col h-full tracking-wide bg-gray-200 dark:bg-gray-800">
-				<div className="flex flex-col overflow-y-auto p-2 h-full items-end">
+			<div className="flex flex-col h-full tracking-wide bg-gray-200 dark:bg-gray-800">
+				<div className="flex flex-col overflow-y-auto h-full items-end p-6">
 					{chat?.messages?.map((message) => (
 						<div
 							key={message.id}
@@ -68,7 +68,7 @@ const ChatDisplay = ({ chat, handleAddMessage }) => {
 				</div>
 				<form
 					onSubmit={handleSendMessage}
-					className="flex sticky bottom-0 bg-gray-300 p-4"
+					className="flex sticky bottom-0 bg-gray-300 dark:bg-gray-700 p-4"
 				>
 					<input
 						type="text"
