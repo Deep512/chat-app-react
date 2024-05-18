@@ -30,7 +30,7 @@ const ChatDisplay = ({ chat, handleAddMessage }) => {
 			inputRef.current.focus()
 		}
 		setNewMessage("")
-	}, [chat])
+	}, [chat?.messages])
 
 	if (!chat) {
 		return (
@@ -43,53 +43,49 @@ const ChatDisplay = ({ chat, handleAddMessage }) => {
 	}
 
 	return (
-		<>
+		<div className="flex flex-col h-full tracking-wide bg-gray-200 dark:bg-gray-800">
 			<div className=" sticky top-0 bg-white dark:bg-gray-700 shadow-md dark:shadow-gray-900 flex items-center">
 				<h1 className="p-5 text-xl font-bold dark:text-white">{chat.name}</h1>
 			</div>
-			<div className="flex flex-col h-full tracking-wide bg-gray-200 dark:bg-gray-800">
-				<div className="flex flex-col overflow-y-auto h-full items-end p-6">
-					{chat?.messages?.map((message) => (
-						<div
-							key={message.id}
-							className="mb-2 bg-green-600 min-w-52 rounded-lg p-2 max-w-[40rem]"
-						>
-							<p className="text-sm text-orange-300 font-bold">
-								{message.user}
-							</p>
-
-							<div className="flex text-white justify-between items-end">
-								<p>{message.content}</p>
-								<p className="text-xs italic text-gray-200">
-									{message.timestamp}
-								</p>
-							</div>
-						</div>
-					))}
-					<div ref={messagesEndRef} />
-				</div>
-				<form
-					onSubmit={handleSendMessage}
-					className="flex sticky bottom-0 bg-gray-300 dark:bg-gray-700 p-4"
-				>
-					<input
-						type="text"
-						ref={inputRef}
-						className="flex-1 border p-2 rounded-md focus:outline-none"
-						value={newMessage}
-						placeholder="Type a message"
-						onChange={(e) => setNewMessage(e.target.value)}
-					/>
-					<button
-						onClick={handleSendMessage}
-						className=" text-green-500 text-3xl ml-2 disabled:text-gray-600"
-						disabled={!newMessage}
+			<div className="flex flex-col overflow-scroll flex-grow items-end p-6">
+				{chat?.messages?.map((message) => (
+					<div
+						key={message.id}
+						className="mb-2 bg-green-600 min-w-52 rounded-lg p-2 max-w-[40rem]"
 					>
-						<IoMdSend />
-					</button>
-				</form>
+						<p className="text-sm text-orange-300 font-bold">{message.user}</p>
+
+						<div className="flex text-white justify-between items-end">
+							<p>{message.content}</p>
+							<p className="text-xs italic text-gray-200">
+								{message.timestamp}
+							</p>
+						</div>
+					</div>
+				))}
+				<div ref={messagesEndRef} />
 			</div>
-		</>
+			<form
+				onSubmit={handleSendMessage}
+				className="flex sticky bottom-0 bg-gray-300 dark:bg-gray-700 p-4"
+			>
+				<input
+					type="text"
+					ref={inputRef}
+					className="flex-1 border p-2 rounded-md focus:outline-none"
+					value={newMessage}
+					placeholder="Type a message"
+					onChange={(e) => setNewMessage(e.target.value)}
+				/>
+				<button
+					onClick={handleSendMessage}
+					className=" text-green-500 text-3xl ml-2 disabled:text-gray-600"
+					disabled={!newMessage}
+				>
+					<IoMdSend />
+				</button>
+			</form>
+		</div>
 	)
 }
 
