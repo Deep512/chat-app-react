@@ -2,11 +2,11 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import "./styles/tailwind.css"
 import "./index.css"
-import App from "./App"
+import TextEditor from "./TextEditor"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
 	<React.StrictMode>
-		<App />
+		<TextEditor />
 	</React.StrictMode>
 )

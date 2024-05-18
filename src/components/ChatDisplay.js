@@ -14,6 +14,10 @@ const ChatDisplay = ({ chat, handleAddMessage }) => {
 	const handleSendMessage = (e) => {
 		e.preventDefault()
 		if (newMessage.trim() !== "" || selectedFile) {
+			const threadId = {
+				id: Date.now(),
+				messages: [],
+			}
 			const message = {
 				id: Date.now(),
 				user: "User",
@@ -26,6 +30,7 @@ const ChatDisplay = ({ chat, handleAddMessage }) => {
 						altText: selectedFile ? selectedFile.name : "",
 					},
 				},
+				threadId: threadId.id,
 				timestamp: new Date().toLocaleTimeString(),
 				repliedTo: selectedMessage,
 			}
