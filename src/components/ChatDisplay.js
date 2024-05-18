@@ -34,8 +34,10 @@ const ChatDisplay = ({ chat, handleAddMessage }) => {
 
 	if (!chat) {
 		return (
-			<div className="p-4 bg-gray-100 h-screen">
-				Select a chat to start messaging
+			<div className="p-4 flex justify-center items-center bg-gray-100 dark:bg-gray-800 h-screen">
+				<p className="text-xl dark:text-white">
+					Select a chat to start messaging
+				</p>
 			</div>
 		)
 	}

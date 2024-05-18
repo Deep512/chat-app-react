@@ -22,10 +22,11 @@ const App = () => {
 	const handleAddChat = () => {
 		const newChat = {
 			id: Date.now(),
-			name: `Chat ${chats.length + 1}`,
+			name: `Chat ${(chats ? chats.length : 0) + 1}`,
 			messages: [],
 		}
-		setChats([...chats, newChat])
+		if (chats) setChats([...chats, newChat])
+		else setChats([newChat])
 	}
 
 	const handleAddMessage = (message, selectedChat) => {
@@ -40,7 +41,7 @@ const App = () => {
 	const selectedChat = chats?.find((chat) => chat.id === selectedChatId)
 
 	return (
-		<div className="flex h-screen">
+		<div className="flex h-screen bg-gray-200 dark:bg-gray-800">
 			<Sidebar
 				chats={chats}
 				selectedChatId={selectedChatId}
