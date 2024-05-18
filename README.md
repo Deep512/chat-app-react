@@ -4,13 +4,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Instructions to run the app
 
+To install all the necessary dependencies
 ```
 npm install
 ```
 
+To run the application
 ```
 npm start
 ```
+
+Open localhost:3000 once successfully compiled.
 
 ## Available Scripts
 
