@@ -7,8 +7,9 @@ const App = () => {
 	const handleAddTextClick = () => {
 		const textElement = {
 			id: Date.now(),
-			type: "text",
-			content: "",
+			type: "heading",
+			variant: "h1",
+			data: [],
 		}
 		setElements((elements) => [...elements, textElement])
 	}
